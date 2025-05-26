@@ -41,6 +41,15 @@ public class TransferController {
 		} 
 	}
 	
+	@GetMapping("/my-transfers-top")
+	public ResponseEntity<Object> getMyTransfersTop(@RequestParam Integer idUser) {
+		try {
+			return ResponseHandler.generarRespuesta(Constants.RESPUESTA_EXITO, HttpStatus.OK, transferService.getMyTransfersTop(idUser));
+		} catch (Exception e) {
+			return ResponseHandler.generarRespuesta(Constants.RESPUESTA_ERROR_SERVIDOR, HttpStatus.NOT_FOUND, e.getMessage());		
+		} 
+	}
+	
 	@GetMapping("/grafic-transfers")
 	public ResponseEntity<Object> graficTransfers(@RequestParam Integer idAccount) {
 		try {

@@ -71,6 +71,10 @@ public class TransferService {
 	    accountRepository.save(destination);
 	}
 	
+	public List<MyTransfersDto> getMyTransfersTop(Integer idUser) {
+		return transferRepository.getMyTransfersTop(idUser);
+	}
+	
 	public List<MyTransfersDto> getMyTransfers(Integer idUser) {
 		return transferRepository.getMyTransfers(idUser);
 	}
